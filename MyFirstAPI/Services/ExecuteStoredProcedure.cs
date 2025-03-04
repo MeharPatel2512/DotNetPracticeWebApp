@@ -16,7 +16,7 @@ namespace MyFirstAPI.Services
         public ExecuteStoredProcedure(IConfiguration configuration){
             ConnectionString = configuration.GetConnectionString("DefaultConnection");
         }
-        public async Task<DataSet> CallStoredProcedure(string StoredProcedure, Dictionary<string, object> Parameters)
+        public async Task<DataSet> CallStoredProcedure(string StoredProcedure, Dictionary<string, object> ?Parameters)
         {
             using (SqlConnection sqlConnection = new SqlConnection(ConnectionString)){
                 await sqlConnection.OpenAsync();

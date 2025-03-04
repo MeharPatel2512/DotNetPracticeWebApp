@@ -8,6 +8,9 @@ namespace MyFirstAPI.Models
         [Required]
         public String? Name { get; set; }
         [Required]        
-        public  String? Email { get; set; }
+        public String? Email { get; set; }
+        public String? Address { get; set; }
+        public long Mobile { get; set; }
+        public  bool Is_active { get; set; }
     }
 }

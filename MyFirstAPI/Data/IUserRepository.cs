@@ -1,19 +1,16 @@
-    using System.Collections.Generic;
-    using Microsoft.Data.SqlClient;
-    using Microsoft.Extensions.Configuration;
-    using MyFirstAPI.Models;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
+using MyFirstAPI.Models;
 
-    namespace MyFirstAPI.Data
+namespace MyFirstAPI.Data
+{
+    public interface IUserRepository
     {
-        public interface IUserRepository
-        {
-
-            public Task <IEnumerable<User>> GetAllUsers();
-
-            public Task <User> GetOneUser(int Id);
-
-            public Task AddOneUser(String Name, String Email);
-
-            public Task<User> DeleteOneUser(int Id);
-        }
+    public Task<ApiResponse<IEnumerable<User>>> GetAllUsers();
+        public Task<ApiResponse<User>> GetOneUser(int Id);
+        public Task<ApiResponse<object>> AddOneUser(List<User> users);
+        public Task<ApiResponse<User>> DeleteOneUser(int Id);
     }
+}
